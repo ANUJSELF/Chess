@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber5 Chess Tournament Live Display</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 class="title">♟ Cyber5 Chess Tournament 2026</h1>
+                    <p class="subtitle">Live Match Display</p>
+                </div>
+                <div class="status-section">
+                    <div class="connection-status" id="connectionStatus">
+                        <span class="status-indicator" id="statusIndicator"></span>
+                        <span class="status-text" id="statusText">Connecting...</span>
+                    </div>
+                    <div class="timestamp" id="timestamp">Updated: --:--:--</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Controls -->
+            <div class="controls">
+                <button class="btn btn-primary" id="refreshBtn">🔄 Refresh</button>
+                <button class="btn btn-secondary" id="autoRefreshToggle">📱 Auto-Refresh: ON</button>
+                <div class="info-text" id="matchCount">Loading matches...</div>
+            </div>
+
+            <!-- Matches Grid -->
+            <div class="matches-grid" id="matchesContainer">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading tournament matches...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Cyber5 Indoor Sports Tournament 2026 | Live Chess Board</p>
+            <p class="version">v1.0.0</p>
+        </footer>
+    </div>
+
+    <!-- WebSocket Client Script -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
